@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<link href="https://fonts.cdnfonts.com/css/pixeloid-sans" rel="stylesheet">
+		<link rel="icon" type="image/x-icon" href="icon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=0.8">
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="main.css">
+		<title>Arcade - TopHat Games</title>
+		
+		<style>
+			* {
+				font-family: 'Pixeloid Sans', sans-serif;
+			}
+			
+			*:hover {
+				cursor: default;
+			}
+			
+			.glink {
+				color:white;
+				font-size: 180%;
+				transition: 0.5s ease;
+				text-decoration:none;
+			}
+			
+			.glink:hover {
+				cursor: pointer;
+				font-size: 200%;
+				color:gold;
+			}
+	
+			#slbg {
+				position: fixed;
+				transition: ease .2s;
+				opacity: 0;
+				z-index = -1;
+			}
+			
+		</style>
+		
+	</head>
+	
+	<body bgcolor="black">
+	
+	<div class="main">
+		<div id="slbg" class="sliding-background" style="background: url('art/cross_worlds.png') repeat;"></div>
+	
+		<h3 style="color:gold; font-family: 'Pixeloid Mono', sans-serif;">
+			Welcome to play.tophatgames.net
+		</h3>
+		
+		<h4 style="color:white; font-size:80%; transform: translateY(-15px)">
+			If you are seeing this screen, you only entered the domain, you can go to the games's redirect page by clicking on them.
+			
+			<br><br>
+			
+			<span id="gtitle" style="font-family: 'Pixeloid Mono', sans-serif; color:gold; font-size: 250%">MAIN GAMES</span><br>
+			<a href = "crossworldsparty" class="glink" id="crossworlds">Cross-Worlds Party<br></a>
+			
+			<br>
+			
+			<span id="gtitle" style="font-family: 'Pixeloid Mono', sans-serif; color:gold; font-size: 250%">DEMOS</span><br>
+			<a href="poweroutage_olddemo" class="glink" id="poweroutagedemo">Power Outage: Old Demo<br></a>
+			<a href="lightsout" class="glink" id="lightsout">Lights Out<br></a>
+			<a href="superplatformdemo" class="glink" id="superplatformdtag">Super Platform: Chapter 2 Demo<br></a>
+			<a href="superplatformoriginal" class="glink" id="superplatformorg">Super Platform: Original<br></a>
+			
+			<br>
+			
+			<span id="gtitle" style="font-family: 'Pixeloid Mono', sans-serif; color:gold; font-size: 250%">SM4LLS</span><br>
+			<a href="friendshiptest" class="glink" id="friendshiptest">[SM4LL] Friendship Test<br></a>
+			<a href="icecreamcatch" class="glink" id="icecreamcatch">[SM4LL] IceCream CATCH!<br></a>
+		
+		</h4>
+		
+		
+	</div>
+	
+	</body>
+	
+	<script>
+	
+		// VARIABLES \\
+		const games = [
+			document.getElementById("crossworlds"),
+			document.getElementById("friendshiptest"),
+			document.getElementById("poweroutagedemo"),
+			document.getElementById("lightsout"),
+			document.getElementById("superplatformdtag"),
+			document.getElementById("superplatformorg"),
+			document.getElementById("icecreamcatch"),
+		]
+		
+		img = document.getElementById("slbg");
+		
+		speed = 0.001;
+		limit = 0.25;
+		
+		// FADE FUNCTIONS \\
+		function fadeIn(new_image) {
+			img.style.opacity = limit;
+			
+			var _IMAGE = ""
+			
+			if (new_image == null) {
+				_IMAGE = "url(art/cross_worlds.png)";
+			} else {
+				_IMAGE = "url("+new_image+")";
+			}
+			
+			img.style.backgroundImage = _IMAGE;
+		
+			function tick() {
+				if (img.style.opacity > 0) {
+					img.style.opacity = +img.style.opacity - speed;
+				}
+			}
+			
+			setTimeout(tick(), 100);
+		}
+		
+		function fadeOut() {
+			img.style.opacity = 0;
+			
+			function tick() {
+				if (img.style.opacity < limit) {
+					img.style.opacity = +img.style.opacity + speed;
+				}
+			}
+			
+			tick()
+		}
+		
+		// CONNECT THE FUNCTIONS TO THE ELEMENTS \\
+		// cross worlds party
+		games[0].addEventListener("mouseover", function(event){ fadeIn("art/cross_worlds.png"); });
+		games[0].addEventListener("mouseleave", fadeOut);
+		
+		// friendship test
+		games[1].addEventListener("mouseover", function(event){ fadeIn("art/friendship_test.png"); });
+		games[1].addEventListener("mouseleave", fadeOut);
+		
+		// power outage demo
+		games[2].addEventListener("mouseover", function(event){ fadeIn("art/power_outage_demo.png"); });
+		games[2].addEventListener("mouseleave", fadeOut);
+		
+		// lights out
+		games[3].addEventListener("mouseover", function(event){ fadeIn("art/lights_out.png"); });
+		games[3].addEventListener("mouseleave", fadeOut);
+		
+		// super platform (chapter 2 demo)
+		games[4].addEventListener("mouseover", function(event){ fadeIn("art/super_platform_c2.png"); });
+		games[4].addEventListener("mouseleave", fadeOut);
+		
+		// super platform original
+		games[5].addEventListener("mouseover", function(event){ fadeIn("art/super_platform_org.png"); });
+		games[5].addEventListener("mouseleave", fadeOut);
+		
+		// icecream catch
+		games[6].addEventListener("mouseover", function(event){ fadeIn("art/icecream_catch.png"); });
+		games[6].addEventListener("mouseleave", fadeOut);
+	
+	</script>
+
+</html>
