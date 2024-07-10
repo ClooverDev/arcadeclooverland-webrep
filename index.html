@@ -38,13 +38,73 @@
 				z-index = -1;
 			}
 			
+			.cartridge {
+				position: fixed;
+				transform: translate(76%, 30%);
+				height: 500px;
+				width: 700px;
+			}
+			
+			.image_off {
+				position: fixed;
+				opacity: 0;
+				height: 160%;
+				width: 100%;
+				scale: 80%;
+				transform: translate(0, -18%);
+			}
+			
+			.image_on {
+				position: fixed;
+				opacity: 0;
+				height: 160%;
+				width: 100%;
+				transform: translate(0, -18%);
+				animation: imgFadeOut 2.5s ease forwards;
+			}
+			
+			@keyframes imgFadeOut {
+				0% {
+					opacity: 0;
+					scale: 80%;
+				}
+			
+				50% {
+					opacity: 1;
+					scale: 125%;
+				}
+				
+				100% {
+					opacity: 1;
+					scale: 80%;
+				}
+			}
+			
+			.main_off {
+				animation: fadeOut_main 1.5s ease forwards;
+			}
+			
+			@keyframes fadeOut_main {
+				from {
+					opacity: 1;
+				}
+				
+				to {
+					opacity: 0;
+				}
+			}
+			
 		</style>
 		
 	</head>
 	
 	<body bgcolor="black">
 	
-	<div class="main">
+	<div class="cartridge">
+		<img class="image_off" id="cr" src="art/cartridge.png">
+	</div>
+	
+	<div class="main" id="main_group">
 		<div id="slbg" class="sliding-background" style="background: url('art/cross_worlds.png') repeat;"></div>
 	
 		<h3 style="color:gold; font-family: 'Pixeloid Mono', sans-serif;">
@@ -58,21 +118,21 @@
 			<br><br>
 			
 			<span id="gtitle" style="font-family: 'Pixeloid Mono', sans-serif; color:gold; font-size: 250%">MAIN GAMES</span><br>
-			<a href = "crossworldsparty" class="glink" id="crossworlds">Cross-Worlds Party<br></a>
+			<a class="glink" id="crossworlds">Cross-Worlds Party<br></a>
 			
 			<br>
 			
 			<span id="gtitle" style="font-family: 'Pixeloid Mono', sans-serif; color:gold; font-size: 250%">DEMOS</span><br>
-			<a href="poweroutage_olddemo" class="glink" id="poweroutagedemo">Power Outage: Old Demo<br></a>
-			<a href="lightsout" class="glink" id="lightsout">Lights Out<br></a>
-			<a href="superplatformdemo" class="glink" id="superplatformdtag">Super Platform: Chapter 2 Demo<br></a>
-			<a href="superplatformoriginal" class="glink" id="superplatformorg">Super Platform: Original<br></a>
+			<a class="glink" id="poweroutagedemo">Power Outage: Old Demo<br></a>
+			<a class="glink" id="lightsout">Lights Out<br></a>
+			<a class="glink" id="superplatformdtag">Super Platform: Chapter 2 Demo<br></a>
+			<a class="glink" id="superplatformorg">Super Platform: Original<br></a>
 			
 			<br>
 			
 			<span id="gtitle" style="font-family: 'Pixeloid Mono', sans-serif; color:gold; font-size: 250%">SM4LLS</span><br>
-			<a href="friendshiptest" class="glink" id="friendshiptest">[SM4LL] Friendship Test<br></a>
-			<a href="icecreamcatch" class="glink" id="icecreamcatch">[SM4LL] IceCream CATCH!<br></a>
+			<a class="glink" id="friendshiptest">[SM4LL] Friendship Test<br></a>
+			<a class="glink" id="icecreamcatch">[SM4LL] IceCream CATCH!<br></a>
 		
 		</h4>
 		
@@ -134,33 +194,68 @@
 			tick()
 		}
 		
+		function playAnimation() {
+			const _cartridge = document.getElementById("cr");
+			const _main = document.getElementById("main_group");
+			
+			_cartridge.classList.add("image_on");
+			_cartridge.classList.remove("image_off");
+			
+			_main.classList.add("main_off");
+			_main.classList.remove("main");
+			
+			function tick_main() {
+				if (_main != null) {
+					_main.addEventListener('animationend', function(ev) {
+						if (ev.animationName == "fadeOut_main") {
+							_main.remove();
+						}
+					})
+				}
+				
+			}
+			
+			tick_main();
+		}
+		
+		function moveToGame(__PAGE) {
+			window.top.location = __PAGE;
+		}
+		
 		// CONNECT THE FUNCTIONS TO THE ELEMENTS \\
 		// cross worlds party
 		games[0].addEventListener("mouseover", function(event){ fadeIn("art/cross_worlds.png"); });
 		games[0].addEventListener("mouseleave", fadeOut);
+		games[0].addEventListener("click", function(event) { playAnimation(); setTimeout(() => { moveToGame("crossworldsparty") }, 2000) });
 		
 		// friendship test
 		games[1].addEventListener("mouseover", function(event){ fadeIn("art/friendship_test.png"); });
+		games[1].addEventListener("click", function(event) { playAnimation(); setTimeout(() => { moveToGame("friendshiptest") }, 2000) });
 		games[1].addEventListener("mouseleave", fadeOut);
 		
 		// power outage demo
 		games[2].addEventListener("mouseover", function(event){ fadeIn("art/power_outage_demo.png"); });
+		games[2].addEventListener("click", function(event) { playAnimation(); setTimeout(() => { moveToGame("poweroutage_olddemo") }, 2000) });
 		games[2].addEventListener("mouseleave", fadeOut);
 		
 		// lights out
 		games[3].addEventListener("mouseover", function(event){ fadeIn("art/lights_out.png"); });
+		games[3].addEventListener("click", function(event) { playAnimation(); setTimeout(() => { moveToGame("lightsout") }, 2000) });
 		games[3].addEventListener("mouseleave", fadeOut);
 		
 		// super platform (chapter 2 demo)
 		games[4].addEventListener("mouseover", function(event){ fadeIn("art/super_platform_c2.png"); });
+		games[4].addEventListener("click", function(event) { playAnimation(); setTimeout(() => { moveToGame("superplatformdemo") }, 2000) });
 		games[4].addEventListener("mouseleave", fadeOut);
 		
 		// super platform original
 		games[5].addEventListener("mouseover", function(event){ fadeIn("art/super_platform_org.png"); });
+		games[5].addEventListener("click", function(event) { playAnimation(); setTimeout(() => { moveToGame("superplatformoriginal") }, 2000) });
 		games[5].addEventListener("mouseleave", fadeOut);
 		
 		// icecream catch
 		games[6].addEventListener("mouseover", function(event){ fadeIn("art/icecream_catch.png"); });
+		games[6].addEventListener("click", function(event) { playAnimation(); setTimeout(() => { moveToGame("icecreamcatch") }, 2000) });
 		games[6].addEventListener("mouseleave", fadeOut);
 	
 	</script>
