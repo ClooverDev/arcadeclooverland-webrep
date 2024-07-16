@@ -240,6 +240,7 @@
 			<span id="gtitle" style="font-family: 'Pixeloid Mono', sans-serif; color:gold; font-size: 250%">SM4LLS</span><br>
 			<a class="glink" id="friendshiptest">[SM4LL] Friendship Test<br></a>
 			<a class="glink" id="icecreamcatch">[SM4LL] IceCream CATCH! [UNDER WORKS]<br></a>
+			<a class="glink" id="micterror">[SM4LL] MicTerror [SOON]<br></a>
 		
 		</h4>
 	</div>
@@ -283,6 +284,7 @@
 			document.getElementById("superplatformdtag"),
 			document.getElementById("superplatformorg"),
 			document.getElementById("icecreamcatch"),
+			document.getElementById("micterror"),
 		]
 		
 		const img = document.getElementById("slbg");
@@ -419,6 +421,11 @@
 		games[6].addEventListener("mouseover", function(event){ fadeIn("art/icecream_catch.png", "art/logos/icecreamcatch.png"); });
 		games[6].addEventListener("click", function(event) { fadeOut_bar(); playAnimation(); setTimeout(() => { moveToGame("icecreamcatch") }, 2000) });
 		games[6].addEventListener("mouseleave", fadeOut);
+
+		// micterror
+		games[7].addEventListener("mouseover", function(event){ fadeIn("art/template.png", "art/template.png"); });
+		games[7].addEventListener("click", function(event) { fadeOut_bar(); playAnimation(); setTimeout(() => { moveToGame("icecreamcatch") }, 2000) });
+		games[7].addEventListener("mouseleave", fadeOut);
 	
 	</script>
 	
