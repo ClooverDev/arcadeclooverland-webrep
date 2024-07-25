@@ -30,6 +30,19 @@
 				font-size: 200%;
 				color:gold;
 			}
+			
+			.glink_s {
+				color:gray;
+				font-size: 180%;
+				transition: 0.5s ease;
+				text-decoration:none;
+			}
+			
+			.glink_s:hover {
+				cursor: pointer;
+				font-size: 200%;
+				color:red;
+			}
 	
 			#slbg {
 				position: fixed;
@@ -155,9 +168,11 @@
 			
 			
 			#id_new_game {
-				transform: translateY(50%);
+				transform: translateY(-65px);
+				position: fixed;
 				height: 70%;
 				width: 100%;
+				z-index: -1;
 			}
 			
 			#id_new_game img {
@@ -225,6 +240,9 @@
 			<br><br>
 			
 			<span id="gtitle" style="font-family: 'Pixeloid Mono', sans-serif; color:gold; font-size: 250%">MAIN GAMES</span><br>
+			<a class="glink_s" id="poweroutage">Power Outage: Full Game [SOON]<br></a>
+			<a class="glink_s" id="superplatformlc">Super Platform: Lost Cartridges [SOON]<br></a>
+			<a class="glink_s" id="thelegendofnanico">The Legend of Nanico [SOON]<br></a>
 			<a class="glink" id="crossworlds">Cross-Worlds Party<br></a>
 			
 			<br>
@@ -234,6 +252,7 @@
 			<a class="glink" id="lightsout">Lights Out<br></a>
 			<a class="glink" id="superplatformdtag">Super Platform: Chapter 2 Demo<br></a>
 			<a class="glink" id="superplatformorg">Super Platform: Original<br></a>
+			<a class="glink_s" id="tophatparty">TopHat Party [SOON]<br></a>
 			
 			<br>
 			
@@ -241,6 +260,10 @@
 			<a class="glink" id="friendshiptest">[SM4LL] Friendship Test<br></a>
 			<a class="glink" id="icecreamcatch">[SM4LL] IceCream CATCH! [OUT!!]<br></a>
 			<a class="glink" id="micterror">[SM4LL] MicTerror [SOON]<br></a>
+			<a class="glink_s" id="boxoffriends">[SM4LL] Box of Friends [SOON]<br></a>
+			<a class="glink_s" id="plusminus">[SM4LL] PlusMinus [SOON]<br></a>
+			<a class="glink_s" id="jesterscurse">[SM4LL] Jester's Curse [SOON]<br></a>
+			<a class="glink_s" id="chinelasbattle">[SM4LL] Chinelas Battle [SOON]<br></a>
 		
 		</h4>
 	</div>
@@ -252,7 +275,7 @@
 		
 		<iframe style="transform:translate(-40px, -5px); border-radius: 25px;" src="https://widgets.gamejolt.com/package/v1?key=MmoEVGnD" frameborder="0" width="450" height="170"></iframe>
 		
-		<div class="progress_bar" style="border-radius: 10px; height: 25px; border: 4px solid white">
+		<div class="progress_bar" style="border-radius: 10px; width: 90%; height: 25px; border: 4px solid white">
 			<div id="pb_bar" class="progress_bar" style="width: 100%; height: 100%; background-image: linear-gradient(to right, #800064, #c20098);"div>
 			
 		</div>
