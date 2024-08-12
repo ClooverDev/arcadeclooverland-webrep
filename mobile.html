@@ -449,6 +449,18 @@
 		games[7].addEventListener("touchstart", function(event){ fadeIn("art/icecream_catch.png", "art/icecream_catch.png"); });
 		games[7].addEventListener("click", function(event) { fadeOut_bar(); playAnimation(); setTimeout(() => { moveToGame("micterror") }, 2000) });
 		games[7].addEventListener("touchend", fadeOut);
+
+		function isMobile() {
+		  const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+		  return regex.test(navigator.userAgent);
+		}
+
+		if (isMobile()) {
+			console.log("user is on mobile!");
+		} else {
+			window.location.replace("https://arcade.tophatgames.net");
+			console.log("user is on desktop!");
+		}
 	
 	</script>
 
