@@ -5,7 +5,7 @@ function isMobile() {
 
 if (isMobile()) {
 	console.log("user is on mobile!");
-    window.location.replace("https://arcade.tophatgames.net/error");
+    window.location.replace("https://arcade.tophatgames.net/mobile");
 } else {
 	console.log("user is on desktop!");
 }
