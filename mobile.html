@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<link href="https://fonts.cdnfonts.com/css/pixeloid-sans" rel="stylesheet">
+		<link rel="icon" type="image/x-icon" href="icon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=0.8">
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="main.css">
+		<title>Arcade - TopHat Games</title>
+		
+		<style>
+			* {
+				font-family: 'Pixeloid Sans', sans-serif;
+			}
+			
+			*:hover {
+				cursor: default;
+			}
+			
+			.glink {
+				color:white;
+				font-size: 180%;
+				transition: 0.25s ease;
+				text-decoration:none;
+			}
+			
+			.glink:hover {
+				cursor: pointer;
+				font-size: 200%;
+				color:gold;
+			}
+			
+			.glink_s {
+				color:gray;
+				font-size: 180%;
+				transition: 0.5s ease;
+				text-decoration:none;
+			}
+			
+			.glink_s:hover {
+				cursor: pointer;
+				font-size: 200%;
+				color:red;
+			}
+	
+			#slbg {
+				position: fixed;
+				transition: ease .2s;
+				opacity: 0;
+				z-index = -1;
+			}
+			
+			.cartridge {
+				position: fixed;
+				transform: translate(76%, 30%);
+				height: 500px;
+				width: 700px;
+			}
+			
+			.image_off {
+				position: fixed;
+				opacity: 0;
+				height: 160%;
+				width: 100%;
+				scale: 80%;
+				transform: translate(-1570px, -18%);
+			}
+			
+			.image_on {
+				position: fixed;
+				opacity: 0;
+				height: 160%;
+				width: 100%;
+				transform: translate(-1570px, -18%);
+				animation: imgFadeOut 1.5s ease forwards;
+			}
+			
+			@keyframes imgFadeOut {
+				0% {
+					opacity: 0;
+					scale: 40%;
+				}
+			
+				50% {
+					opacity: 1;
+					scale: 45%;
+				}
+				
+				100% {
+					opacity: 1;
+					scale: 40%;
+				}
+			}
+			
+			.main_off {
+				animation: fadeOut_main 1.5s ease forwards;
+			}
+			
+			@keyframes fadeOut_main {
+				from {
+					opacity: 1;
+				}
+				
+				to {
+					opacity: 0;
+				}
+			}
+			
+			.logo {
+				position: fixed;
+				transform: translate(150%, 80%) rotate(-5deg);
+				height: 500px;
+				width: 700px;
+			}
+			
+			#game_sel_logo {
+				z-index: 4;
+				opacity: 0;
+				position: fixed;
+				object-fit: fit;
+				height: 100%;
+				width: 120%;
+				scale: 70%;
+				transform: translate(0, 0);
+			}
+			
+			.logo_off {
+				animation: LfadeOut_main 0.8s ease forwards;
+			}
+			
+			.logo_on {
+				animation: LfadeIn_main 0.8s ease forwards;
+			}
+			
+			@keyframes LfadeIn_main {
+				0% {
+					scale: 80%;
+					opacity: 0;
+				}
+				
+				50% {
+					scale: 100%;
+					opacity: 1;
+				}
+				
+				100% {
+					scale: 80%;
+					opacity: 1;
+				}
+			}
+			
+			@keyframes LfadeOut_main {
+				0% {
+					scale: 80%;
+					opacity: 1;
+				}
+				
+				100% {
+					scale: 0%;
+					opacity: 0;
+				}
+			}
+			
+			#slbg {
+				z-index: -1;
+			}
+			
+			
+			#id_new_game {
+				transform: translateY(-65px);
+				position: fixed;
+				height: 70%;
+				width: 100%;
+				z-index: -1;
+			}
+			
+			#id_new_game img {
+				width: 20%;
+				transform: translate(-25px, 15px);
+			}
+			
+			.body_bg {
+				position:fixed;
+				z-index: -25;
+				margin-left: -10px;
+				overflow: hidden;
+				height: 10000px;
+				width: 10000px;
+				opacity: 0.5;
+				animation: slide2 120s linear infinite;
+			} 
+
+			@-webkit-keyframes slide2 {
+			  0% {
+				transform: translate3d(0, -8000px, 0);
+			  }
+			  
+			  100% {
+				transform: translate3d(0, 0px, 0);
+			  }
+			}
+			
+			.new_game_off {
+				animation: ngm_off 1s linear forwards;
+			}
+			
+			@keyframes ngm_off {
+				from { opacity: 1 }
+				to { opacity: 0 }
+			}
+			
+		</style>
+		
+	</head>
+	
+	<body bgColor="black">
+	
+	<div class="body_bg" style="background-image: url(art/checkboard.png)"></div>
+	
+	<div class="cartridge">
+		<img class="image_off" id="cr" src="art/cartridge.png">
+	</div>
+	
+	<div class="logo">
+		<img class="" id="game_sel_logo" src="art/logos/crossworldsparty.png">
+	</div>
+	
+	<div class="main" id="main_group">
+		<div id="slbg" class="sliding-background" style="background: url('art/cross_worlds.png') repeat;"></div>
+	
+		<h3 style="color:gold; font-family: 'Pixeloid Mono', sans-serif;">
+			Welcome to TopHat Games's Arcade
+		</h3>
+		
+		<h4 style="color:white; font-size:80%; transform: translateY(-15px)">
+			If you're here it means that you typed the domain directly, without accessing any games through the path.<br>
+			Here you can see all of our games in a singular list!, have fun in any of them!
+			
+			<br><br>
+			
+			<span id="gtitle" style="font-family: 'Pixeloid Mono', sans-serif; color:gold; font-size: 250%">MAIN GAMES</span><br>
+			<a class="glink_s" id="poweroutage">Power Outage: Full Game [SOON]<br></a>
+			<a class="glink_s" id="superplatformlc">Super Platform: Lost Cartridges [SOON]<br></a>
+			<a class="glink_s" id="thelegendofnanico">The Legend of Nanico [SOON]<br></a>
+			<a class="glink" id="crossworlds">Cross-Worlds Party<br></a>
+			
+			<br>
+			
+			<span id="gtitle" style="font-family: 'Pixeloid Mono', sans-serif; color:gold; font-size: 250%">DEMOS</span><br>
+			<a class="glink" id="poweroutagedemo">Power Outage: Old Demo<br></a>
+			<a class="glink" id="lightsout">Lights Out<br></a>
+			<a class="glink" id="superplatformdtag">Super Platform: Chapter 2 Demo<br></a>
+			<a class="glink" id="superplatformorg">Super Platform: Original<br></a>
+			<a class="glink_s" id="tophatparty">TopHat Party [SOON]<br></a>
+			
+			<br>
+			
+			<span id="gtitle" style="font-family: 'Pixeloid Mono', sans-serif; color:gold; font-size: 250%">SM4LLS</span><br>
+			<a class="glink" id="friendshiptest">[SM4LL] Friendship Test<br></a>
+			<a class="glink" id="icecreamcatch">[SM4LL] IceCream CATCH!<br></a>
+			<a class="glink" id="micterror">[SM4LL] MicTerror [SOON]<br></a>
+			<a class="glink_s" id="boxoffriends">[SM4LL] Box of Friends [SOON]<br></a>
+			<a class="glink_s" id="plusminus">[SM4LL] PlusMinus [SOON]<br></a>
+			<a class="glink_s" id="jesterscurse">[SM4LL] Jester's Curse [SOON]<br></a>
+			<a class="glink_s" id="chinelasbattle">[SM4LL] Chinelas Battle [SOON]<br></a>
+		
+		</h4>
+	</div>
+	
+	<div class="new_game" id="id_new_game">
+	
+		<img src="art/logos/icecreamcatch.png" style="width: 400px; transform: translate(35px, 40px); position: fixed;">
+		
+		<div class="progress_bar" style="border-radius: 10px; width: 95%; height: 25px; border: 4px solid white; transform: translate(0, 275px)">
+			<h2 id="pb_percentage" style="font-size: 18px; color:white; position: fixed; transform: translate(10px, -13px)" > 0% </h2>
+			<div id="pb_bar" class="progress_bar" style="width: 100%; height: 100%; background-image: linear-gradient(to right, #800064, #c20098);"div>
+			
+		</div>
+		
+	</div>
+	
+	</body>
+	
+	<script>
+	
+		// PROGRESS BAR \\
+		const progress_current = 0; // CHANGE THIS ONE TO UPDATE THE BAR !!
+		const current_part_being_produced = "NEXT GAME: MICTERROR (PROGRESS SOON)"
+		
+		function update_progress_bar() {
+			const perc = document.getElementById("pb_percentage");
+			const bar = document.getElementById("pb_bar");
+			
+			bar.style.width = progress_current+"%";
+			perc.innerHTML = progress_current+"%" + " - " + current_part_being_produced;
+		}
+		
+		update_progress_bar();
+	
+		// VARIABLES \\
+		const games = [
+			document.getElementById("crossworlds"),
+			document.getElementById("friendshiptest"),
+			document.getElementById("poweroutagedemo"),
+			document.getElementById("lightsout"),
+			document.getElementById("superplatformdtag"),
+			document.getElementById("superplatformorg"),
+			document.getElementById("icecreamcatch"),
+			document.getElementById("micterror"),
+		]
+		
+		const img = document.getElementById("slbg");
+		const get_logo = document.getElementById("game_sel_logo");
+		
+		speed = 0.001;
+		limit = 0.25;
+		
+		// FADE FUNCTIONS \\
+		function fadeIn(new_image, new_logo) {
+			img.style.opacity = limit;
+			
+			var _IMAGE = "";
+			var _LOGO = "";
+			
+			if (new_image == null) {
+				_IMAGE = "url(art/cross_worlds.png)";
+			} else {
+				_IMAGE = "url("+new_image+")";
+			}
+			
+			if (new_logo == null) {
+				_LOGO = "";
+			} else {
+				_LOGO = new_logo;
+			}
+			
+			get_logo.style.animation = 'none';
+			get_logo.offsetHeight; /* trigger reflow */
+			get_logo.style.animation = null; 
+			
+			img.style.backgroundImage = _IMAGE;
+			get_logo.src = _LOGO;
+			
+			get_logo.classList.remove("logo_off");
+			get_logo.classList.add("logo_on");
+			
+			function tick() {
+				if (img.style.opacity > 0) {
+					img.style.opacity = +img.style.opacity - speed;
+					
+				}
+			}
+			
+			setTimeout(tick(), 100);
+		}
+		
+		function fadeOut() {
+			img.style.opacity = 0;
+			
+			get_logo.classList.remove("logo_on");
+			get_logo.classList.add("logo_off");
+			
+			function tick() {
+				if (img.style.opacity < limit) {
+					img.style.opacity = +img.style.opacity + speed;
+				}
+			}
+			
+			tick()
+		}
+		
+		function fadeOut_bar() {
+			const xyz = document.getElementById("id_new_game");
+			
+			xyz.classList.remove("new_game");
+			xyz.classList.add("new_game_off");
+			
+			get_logo.remove();
+		}
+		
+		function playAnimation() {
+			const _cartridge = document.getElementById("cr");
+			const _main = document.getElementById("main_group");
+			
+			_cartridge.classList.add("image_on");
+			_cartridge.classList.remove("image_off");
+			
+			_main.classList.add("main_off");
+			_main.classList.remove("main");
+			
+			
+						
+			function tick_main() {
+				if (_main != null) {
+					_main.addEventListener('animationend', function(ev) {
+						if (ev.animationName == "fadeOut_main") {
+							_main.remove();
+						}
+					})
+				}
+				
+			}
+			
+			tick_main();
+		}
+		
+		function moveToGame(__PAGE) {
+			window.location.href = __PAGE;
+		}
+		
+		// CONNECT THE FUNCTIONS TO THE ELEMENTS \\
+		// cross worlds party
+		games[0].addEventListener("touchstart", function(event){ fadeIn("art/cross_worlds.png", "art/logos/crossworldsparty.png"); });
+		games[0].addEventListener("touchend", fadeOut);
+		games[0].addEventListener("click", function(event) { fadeOut_bar(); playAnimation(); setTimeout(() => { moveToGame("crossworldsparty") }, 2000) });
+		
+		// friendship test
+		games[1].addEventListener("touchstart", function(event){ fadeIn("art/friendship_test.png", "art/logos/friendshiptest.png"); });
+		games[1].addEventListener("click", function(event) { fadeOut_bar(); playAnimation(); setTimeout(() => { moveToGame("friendshiptest") }, 2000) });
+		games[1].addEventListener("touchend", fadeOut);
+		
+		// power outage demo
+		games[2].addEventListener("touchstart", function(event){ fadeIn("art/power_outage_demo.png", "art/logos/poweroutage_olddemo.png"); });
+		games[2].addEventListener("click", function(event) { fadeOut_bar(); playAnimation(); setTimeout(() => { moveToGame("poweroutage_olddemo") }, 2000) });
+		games[2].addEventListener("touchend", fadeOut);
+		
+		// lights out
+		games[3].addEventListener("touchstart", function(event){ fadeIn("art/lights_out.png", "art/logos/lightsout.png"); });
+		games[3].addEventListener("click", function(event) { fadeOut_bar(); playAnimation(); setTimeout(() => { moveToGame("lightsout") }, 2000) });
+		games[3].addEventListener("touchend", fadeOut);
+		
+		// super platform (chapter 2 demo)
+		games[4].addEventListener("touchstart", function(event){ fadeIn("art/super_platform_c2.png", "art/logos/superplatform_demo.png"); });
+		games[4].addEventListener("click", function(event) { fadeOut_bar(); playAnimation(); setTimeout(() => { moveToGame("superplatformdemo") }, 2000) });
+		games[4].addEventListener("touchend", fadeOut);
+		
+		// super platform original
+		games[5].addEventListener("touchstart", function(event){ fadeIn("art/super_platform_org.png", "art/logos/superplatformoriginal.png"); });
+		games[5].addEventListener("click", function(event) { fadeOut_bar(); playAnimation(); setTimeout(() => { moveToGame("superplatformoriginal") }, 2000) });
+		games[5].addEventListener("touchend", fadeOut);
+		
+		// icecream catch
+		games[6].addEventListener("touchstart", function(event){ fadeIn("art/icecream_catch.png", "art/logos/icecreamcatch.png"); });
+		games[6].addEventListener("click", function(event) { fadeOut_bar(); playAnimation(); setTimeout(() => { moveToGame("icecreamcatch") }, 2000) });
+		games[6].addEventListener("touchend", fadeOut);
+
+		// micterror
+		games[7].addEventListener("touchstart", function(event){ fadeIn("art/icecream_catch.png", "art/icecream_catch.png"); });
+		games[7].addEventListener("click", function(event) { fadeOut_bar(); playAnimation(); setTimeout(() => { moveToGame("micterror") }, 2000) });
+		games[7].addEventListener("touchend", fadeOut);
+	
+	</script>
+
+</html>
