@@ -3,7 +3,7 @@
 
 	<head>
 		<link href="https://fonts.cdnfonts.com/css/pixeloid-sans" rel="stylesheet">
-		<link rel="icon" type="image/x-icon" href="icon.ico">
+		<link rel="icon" type="image/x-icon" href="../arcade.ico">
 		<meta name="viewport" content="width=device-width, initial-scale=0.8">
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="main.css">
@@ -285,8 +285,8 @@
 	<script>
 	
 		// PROGRESS BAR \\
-		const progress_current = 2; // CHANGE THIS ONE TO UPDATE THE BAR !!
-		const current_part_being_produced = "MICTERROR - BASE GAME [PRODUCTION PAUSED UNTIL SEPTEMBER 30TH]"
+		const progress_current = 0; // CHANGE THIS ONE TO UPDATE THE BAR !!
+		const current_part_being_produced = "MICTERROR - BASE GAME"
 		
 		function update_progress_bar() {
 			const perc = document.getElementById("pb_percentage");
@@ -446,7 +446,7 @@
 		games[6].addEventListener("mouseleave", fadeOut);
 
 		// micterror
-		games[7].addEventListener("mouseover", function(event){ fadeIn("art/icecream_catch.png", "art/logos/micterror.png"); });
+		games[7].addEventListener("mouseover", function(event){ fadeIn("art/icecream_catch.png", "art/icecream_catch.png"); });
 		games[7].addEventListener("click", function(event) { fadeOut_bar(); playAnimation(); setTimeout(() => { moveToGame("micterror") }, 2000) });
 		games[7].addEventListener("mouseleave", fadeOut);
 	
