@@ -3,7 +3,7 @@
 
 	<head>
 		<link href="https://fonts.cdnfonts.com/css/pixeloid-sans" rel="stylesheet">
-		<link rel="icon" type="image/x-icon" href="../arcade.ico">
+		<link rel="icon" type="image/x-icon" href="arcade.ico">
 		<meta name="viewport" content="width=device-width, initial-scale=0.8">
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="main.css">
@@ -216,7 +216,7 @@
 	
 	<body bgColor="black">
 	
-	<div class="body_bg" style="background-image: url(art/checkboard.png)"></div>
+	<div class="body_bg" style="background-image: url(art/checkboard_h.png)"></div>
 	
 	<div class="cartridge">
 		<img class="image_off" id="cr" src="art/cartridge.png">
@@ -234,8 +234,7 @@
 		</h3>
 		
 		<h4 style="color:white; font-size:80%; transform: translateY(-15px)">
-			If you're here it means that you typed the domain directly, without accessing any games through the path.<br>
-			Here you can see all of our games in a singular list!, have fun in any of them!
+			This is a sub-domain I've created to redirect my games and to focus only on my games, the<br>main website does that too but is more focused on my studio itself.
 			
 			<br><br>
 			
@@ -269,11 +268,11 @@
 		
 		<div class="new_game" id="id_new_game" style="transform:translateY(-70px);">
 	
-			<img src="art/logos/micterror.png" style="width: 450px; transform: translate(-5px, -20px); position: fixed;">
+			<img src="art/logos/superplatformoriginal.png" style="width: 450px; transform: translate(-5px, -20px); position: fixed;">
 			
-			<div class="progress_bar" style="border-radius: 10px; width: 95%; height: 25px; border: 4px solid white; transform: translate(0, 180px)">
+			<div class="progress_bar" style="border-radius: 10px; width: 95%; height: 25px; border: 4px solid white; transform: translate(0, 220px)">
 				<h2 id="pb_percentage" style="font-size: 18px; color:white; position: fixed; transform: translate(10px, -13px)" > 0% </h2>
-				<div id="pb_bar" class="progress_bar" style="width: 100%; height: 100%; background-image: linear-gradient(to right, #800064, #c20098);"div>
+				<div id="pb_bar" class="progress_bar" style="width: 100%; height: 100%; background-image: linear-gradient(to right, #ca591c, #e88854);"div>
 				
 			</div>
 			
@@ -286,7 +285,7 @@
 	
 		// PROGRESS BAR \\
 		const progress_current = 0; // CHANGE THIS ONE TO UPDATE THE BAR !!
-		const current_part_being_produced = "MICTERROR - BASE GAME"
+		const current_part_being_produced = "UNKOWN PROJECT - BASE GAME (HALLOWEEN PROJECT)"
 		
 		function update_progress_bar() {
 			const perc = document.getElementById("pb_percentage");
