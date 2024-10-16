@@ -5,7 +5,7 @@ function isMobile() {
 
 if (isMobile()) {
 	console.log("user is on mobile!");
-    window.location.replace("https://arcade.tophatgames.net/mobile");
+    window.location.replace("https://clooverlandstudios.com/mobile");
 } else {
 	console.log("user is on desktop!");
 }
