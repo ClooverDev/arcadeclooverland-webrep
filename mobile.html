@@ -48,7 +48,7 @@
 				position: fixed;
 				transition: ease .2s;
 				opacity: 0;
-				z-index = -1;
+				z-index: -1;
 			}
 			
 			.cartridge {
@@ -118,7 +118,6 @@
 			#game_sel_logo {
 				z-index: 4;
 				opacity: 0;
-				object-fit: fit;
 				height: 100%;
 				width: 120%;
 				scale: 50%;
@@ -282,20 +281,6 @@
 	
 	<script>
 	
-		// PROGRESS BAR \\
-		const progress_current = 0; // CHANGE THIS ONE TO UPDATE THE BAR !!
-		const current_part_being_produced = "UNKOWN PROJECT - BASE GAME (HALLOWEEN PROJECT)"
-		
-		function update_progress_bar() {
-			const perc = document.getElementById("pb_percentage");
-			const bar = document.getElementById("pb_bar");
-			
-			bar.style.width = progress_current+"%";
-			perc.innerHTML = progress_current+"%" + " - " + current_part_being_produced;
-		}
-		
-		update_progress_bar();
-	
 		// VARIABLES \\
 		const games = [
 			document.getElementById("crossworlds"),
@@ -443,10 +428,10 @@
 		games[6].addEventListener("click", function(event) { fadeOut_bar(); playAnimation(); setTimeout(() => { moveToGame("icecreamcatch") }, 2000) });
 		games[6].addEventListener("touchend", fadeOut);
 
-		// micterror
-		games[7].addEventListener("touchstart", function(event){ fadeIn("art/icecream_catch.png", "art/logos/micterror.png"); });
-		games[7].addEventListener("click", function(event) { fadeOut_bar(); playAnimation(); setTimeout(() => { moveToGame("micterror") }, 2000) });
-		games[7].addEventListener("touchend", fadeOut);
+		// super platform: reoriginal
+		//games[7].addEventListener("touchstart", function(event){ fadeIn("art/icecream_catch.png", "art/logos/micterror.png"); });
+		//games[7].addEventListener("click", function(event) { fadeOut_bar(); playAnimation(); setTimeout(() => { moveToGame("micterror") }, 2000) });
+		//games[7].addEventListener("touchend", fadeOut);
 		
 		function isMobile() {
 		  const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
@@ -462,6 +447,7 @@
 	
 	</script>
 	
+	<script src="update_progress.js"></script>
 
 
 </html>
