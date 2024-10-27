@@ -1,5 +1,5 @@
 // PROGRESS BAR //
-const progress_current = 25;
+const progress_current = 50;
 const current_part_being_produced = "UNKOWN PROJECT - BASE GAME";
 
 function update_progress_bar() {
