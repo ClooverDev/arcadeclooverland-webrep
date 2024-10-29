@@ -1,5 +1,5 @@
 // PROGRESS BAR //
-const progress_current = 75;
+const progress_current = 89;
 const current_part_being_produced = "SUPER PLATFORM: REORIGINAL - BASE GAME";
 
 function update_progress_bar() {
