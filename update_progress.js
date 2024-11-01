@@ -1,6 +1,6 @@
 // PROGRESS BAR //
 const progress_current = 100;
-const current_part_being_produced = "SUPER PLATFORM: REORIGINAL - BASE GAME";
+const current_part_being_produced = "SUPER PLATFORM: R - BASE GAME";
 
 function update_progress_bar() {
 const perc = document.getElementById("pb_percentage");
