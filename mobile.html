@@ -175,7 +175,7 @@
 			}
 			
 			#id_new_game img {
-				width: 20%;
+				width: 20%; 
 				transform: translate(-25px, 15px);
 			}
 			
@@ -242,6 +242,7 @@
 			<a class="glink_s" id="superplatformlc">Super Platform: Lost Cartridges [SOON]<br></a>
 			<a class="glink_s" id="thelegendofnanico">The Legend of Nanico [SOON]<br></a>
 			<a class="glink" id="crossworlds">Cross-Worlds Party<br></a>
+			<a class="glink" id="superplatformreoriginal">Super Platform: Reoriginal<br></a>
 			
 			<br>
 			
@@ -264,9 +265,9 @@
 		
 		</h4>
 		
-		<div class="new_game" id="id_new_game" style="transform:translateY(-70px);">
+		<div class="new_game" id="id_new_game" style="transform:translateY(-22px);">
 	
-			<img src="art/logos/superplatformoriginal.png" style="width: 450px; transform: translate(-5px, -20px); position: fixed;">
+			<img src="art/logos/superplatformreoriginal.png" style="width: 450px; transform: translate(-5px, -20px); position: fixed;">
 			
 			<div class="progress_bar" style="border-radius: 10px; width: 95%; height: 25px; border: 4px solid white; transform: translate(0, 220px)">
 				<h2 id="pb_percentage" style="font-size: 18px; color:white; position: fixed; transform: translate(10px, -13px)" > 0% </h2>
@@ -290,7 +291,7 @@
 			document.getElementById("superplatformdtag"),
 			document.getElementById("superplatformorg"),
 			document.getElementById("icecreamcatch"),
-			document.getElementById("micterror"),
+			document.getElementById("superplatformreoriginal"),
 		]
 		
 		const img = document.getElementById("slbg");
@@ -428,10 +429,10 @@
 		games[6].addEventListener("click", function(event) { fadeOut_bar(); playAnimation(); setTimeout(() => { moveToGame("icecreamcatch") }, 2000) });
 		games[6].addEventListener("touchend", fadeOut);
 
-		// super platform: reoriginal
-		//games[7].addEventListener("touchstart", function(event){ fadeIn("art/icecream_catch.png", "art/logos/micterror.png"); });
-		//games[7].addEventListener("click", function(event) { fadeOut_bar(); playAnimation(); setTimeout(() => { moveToGame("micterror") }, 2000) });
-		//games[7].addEventListener("touchend", fadeOut);
+		// super platform reorgiinal
+		games[7].addEventListener("touchstart", function(event){ fadeIn("art/super_platform_r.png", "art/logos/superplatformreoriginal.png"); });
+		games[7].addEventListener("click", function(event) { fadeOut_bar(); playAnimation(); setTimeout(() => { moveToGame("superplatformreoriginal") }, 2000) });
+		games[7].addEventListener("touchend", fadeOut);
 		
 		function isMobile() {
 		  const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;

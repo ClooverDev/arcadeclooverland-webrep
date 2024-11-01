@@ -49,7 +49,7 @@
 				position: fixed;
 				transition: ease .2s;
 				opacity: 0;
-				z-index = -1;
+				z-index: -1;
 			}
 			
 			.cartridge {
@@ -242,6 +242,7 @@
 			<a class="glink_s" id="superplatformlc">Super Platform: Lost Cartridges [SOON]<br></a>
 			<a class="glink_s" id="thelegendofnanico">The Legend of Nanico [SOON]<br></a>
 			<a class="glink" id="crossworlds">Cross-Worlds Party<br></a>
+			<a class="glink" id="superplatformreoriginal">Super Platform: Reoriginal<br></a>
 			
 			<br>
 			
@@ -267,7 +268,7 @@
 	
 	<div class="new_game" id="id_new_game">
 	
-		<img style="transform: translate(120px, -10px) scale(2);" src="art/logos/superplatformoriginal.png" style="width:600px;">
+		<img style="transform: translate(120px, -10px) scale(2);" src="art/logos/superplatformreoriginal.png" style="width:600px;">
 		
 		<div class="progress_bar" style="transform: translate(0, 25px); border-radius: 10px; width: 70%; height: 25px; border: 4px solid white">
 			<h2 id="pb_percentage" style="color:white; position: fixed; transform: translate(10px, -21px)" > 0% </h2>
@@ -283,14 +284,14 @@
 	
 		// VARIABLES \\
 		const games = [
-			document.getElementById("crossworlds"),
-			document.getElementById("friendshiptest"),
-			document.getElementById("poweroutagedemo"),
-			document.getElementById("lightsout"),
-			document.getElementById("superplatformdtag"),
-			document.getElementById("superplatformorg"),
-			document.getElementById("icecreamcatch"),
-			document.getElementById("micterror"),
+			document.getElementById("crossworlds"), // 0
+			document.getElementById("friendshiptest"), // 1
+			document.getElementById("poweroutagedemo"), // 2
+			document.getElementById("lightsout"), // 3
+			document.getElementById("superplatformdtag"), // 4
+			document.getElementById("superplatformorg"), // 5
+			document.getElementById("icecreamcatch"), // 6
+			document.getElementById("superplatformreoriginal"), // 7
 		]
 		
 		const img = document.getElementById("slbg");
@@ -428,9 +429,9 @@
 		games[6].addEventListener("click", function(event) { fadeOut_bar(); playAnimation(); setTimeout(() => { moveToGame("icecreamcatch") }, 2000) });
 		games[6].addEventListener("mouseleave", fadeOut);
 
-		// micterror
-		games[7].addEventListener("mouseover", function(event){ fadeIn("art/icecream_catch.png", "art/icecream_catch.png"); });
-		games[7].addEventListener("click", function(event) { fadeOut_bar(); playAnimation(); setTimeout(() => { moveToGame("micterror") }, 2000) });
+		// super platform reorgiinal
+		games[7].addEventListener("mouseover", function(event){ fadeIn("art/super_platform_r.png", "art/logos/superplatformreoriginal.png"); });
+		games[7].addEventListener("click", function(event) { fadeOut_bar(); playAnimation(); setTimeout(() => { moveToGame("superplatformreoriginal") }, 2000) });
 		games[7].addEventListener("mouseleave", fadeOut);
 	
 	</script>
