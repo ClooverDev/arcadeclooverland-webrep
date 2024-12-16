@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+		<link href="https://fonts.cdnfonts.com/css/pixeloid-sans" rel="stylesheet">
+		<title> Arcade - Clooverland Studios </title>
+		<link rel="icon" type="image/x-icon" href="arcade_def.ico">
+		
+		<style>
+		
+			* {
+				font-family: 'Pixeloid Sans', sans-serif;
+				color: white;
+				text-align: center;
+				text-shadow: 0 0 8px black;
+			}
+			
+			*:hover {
+				cursor: default;
+			}
+			
+			main {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+			}
+			
+			.little_cubes {
+				z-index: -1;
+			
+				height: 180px;
+				width: 10000px;
+				
+				transform: translate(-5000px, 75vh) scale(0.8);
+				
+				position: fixed;
+				
+				animation: wassupBroda 60s linear infinite;
+				
+				opacity: 1;
+				
+				filter: blur(60px);
+			}
+			
+			@keyframes wassupBroda {
+				from {
+					transform: translate(-5000px, 75vh) scale(0.8);
+				}
+				
+				to {
+					transform: translate(-2000px, 75vh) scale(0.8);
+				}
+			}
+			
+			.scrollingBG {
+				z-index: -2;
+				width: 100000px;
+				height: 100000px;
+				position: fixed;
+				background-image: url(resources/xmas/checkboard_xmas.png);
+				
+				animation: 300s linear infinite scrolling_animation;
+			}
+			
+			@keyframes scrolling_animation {
+				from {
+					transform: translateY(-50000px);
+				}
+				
+				to {
+					transform: translateY(19500);
+				}
+			}
+			
+			.title_info { 
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+
+				display: flex;
+			}
+			
+			.title_info img {
+				margin-top: -20px;
+				filter: blur(1px);
+				transform: scale(0.9);
+			}
+			
+			.games_group {
+				width: 45%;
+				align-items: center;
+				justify-content: center;
+				flex-direction: row;
+				
+				display: flex;
+			}
+			
+			.games_list {
+				display: flex;
+				
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+			}
+			
+			.game_child {
+				width: 300px;
+			}
+			
+			.game_child img {
+				width: 250px;
+				height: 150px;
+				transform: scale(1);
+				
+				margin-top: -30px;
+				
+				transition: 0.1s ease;
+			}
+			
+			.game_child img:hover {
+				cursor: pointer;
+				
+				filter: drop-shadow(0 0 3px rgba(255, 255, 0, 0.5));
+			
+				transform: scale(1.1);
+			}
+			
+			#big_image_sel {
+				position: absolute;
+				z-index: -1;
+				
+				transform: scale(2.25);
+			}
+			
+			#SEL_IMAGE {
+				opacity: 0.65;
+				
+				filter: blur(2px);
+				animation: woosh 5s ease infinite alternate;
+			}
+			
+			@keyframes woosh {
+				from { transform: translate(15px, -100px) scale(0.4); }
+				to { transform: translate(15px, -100px) scale(0.5); }
+			}
+			
+			.progress_bar {
+				width: 80%;
+				height: 720px;
+				
+				transform: translateX(-15px);
+				margin-top: 10px;
+				
+				flex-direction: column;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			.bar_art {
+				width: 80%;
+				height: 600px;
+				
+				margin-top: -250px;
+				
+				flex-direction: column;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			.bar {
+				width: 720px;
+				height: 30px;
+			}
+			
+			#bar_inner {
+				background: radial-gradient(circle, rgba(150,0,0,1) 0%, rgba(84,8,8,1) 35%, rgba(17,0,0,1) 100%);
+			}
+			
+			.snow {
+				width: 1920px;
+				height: 1080px;
+				position: fixed;
+				filter: blur(5px) drop-shadow(0 0 20px yellow);
+				opacity: 0.5;
+				background-image: url(resources/xmas/snow.gif);
+			}
+			
+		</style>
+
+	</head>
+
+	<body bgColor="black">
+		<div class="snow"></div>
+		<div class="scrollingBG"></div>
+		<div class="little_cubes" style="background-image: url(resources/cubes.png)"></div>
+		
+		<main>
+		
+			<div class="title_info">
+				<img src="resources/web_logos/arcade_xmas.png">
+				
+				<h1 style="color: gold; margin-top: -25px; text-align: center;"> Welcome to the Arcade <br> 
+					<span style="font-size: 15px;">
+						This is a website used for redirects, showcase the games from the group and show the current game's progress (either a update or a new game)
+					</span>
+				</h1>
+			</div>
+			
+			<div class="games_group">
+				<div class="games_list">
+
+					<div class="game_child">
+						<a target="_blank" href="https://arcade.clooverlandstudios.com/superplatformoriginal"><img id="super_platform_original" src="resources/logos/superplatformoriginal.png"></a>
+					</div>
+					
+					<div class="game_child" style="margin-top: -25px;">
+						<a target="_blank" href="https://arcade.clooverlandstudios.com/superplatformdemo"><img id="super_platform_demo" src="resources/logos/superplatform_demo.png"></a>
+					</div>
+					
+					<div class="game_child" style="margin-top: 10px;">
+						<a target="_blank" href="https://arcade.clooverlandstudios.com/lightsout"><img id="lights_out" src="resources/logos/lightsout.png"></a>
+					</div>
+				</div>
+				
+				<div class="games_list">
+
+					<div class="game_child">
+						<a target="_blank" href="https://arcade.clooverlandstudios.com/poweroutageold"><img id="power_outage_olddemo" src="resources/logos/poweroutage_olddemo.png"></a>
+					</div>
+					
+					<div class="game_child" style="margin-top: -25px;">
+						<a target="_blank" href="https://arcade.clooverlandstudios.com/friendshiptest"><img id="friendship_test" src="resources/logos/friendshiptest.png"></a>
+					</div>
+					
+					<div class="game_child" style="margin-top: 10px;">
+						<a target="_blank" href="https://arcade.clooverlandstudios.com/crossworldsparty"><img id="cross_worlds_party" src="resources/logos/crossworldsparty.png"></a>
+					</div>
+				</div>
+				
+				<div class="games_list">
+
+					<div class="game_child">
+						<a target="_blank" href="https://arcade.clooverlandstudios.com/icecreamcatch"><img id="icecream_catch" src="resources/logos/icecreamcatch.png"></a>
+					</div>
+					
+					<div class="game_child" style="margin-top: 20px;">
+						<a target="_blank" href="https://arcade.clooverlandstudios.com/superplatformreoriginal"><img id="super_platform_r" src="resources/logos/superplatformreoriginal.png"></a>
+					</div>
+				</div>
+			</div>
+			
+			<div id="big_image_sel">
+				<img id="SEL_IMAGE" src="">
+			</div>
+			
+			<div class="progress_bar">
+				<div class="bar_art">
+					<img style="transform: translate(38px, 200px) scale(0.8); filter: drop-shadow(0 0 5px white); position: absolute;" src="resources/logos/superplatformreoriginal.png">
+					<img style="transform: translateX(25px); z-index: -1; position: absolute;" src="resources/super_platform_r.png">
+				</div>
+				
+				<div class="bar">
+					<h3 id="bar_title" style="margin-bottom: 10px; color: gold;"> SUPER PLATFORM: REORIGINAL | BASE GAME [0%] </h3>
+					<div style="width: 100%; height: 100%; background-color: black; margin-bottom: -34px; border-radius: 25px; transform: translate(3.5px, -0.5px);" id="bg"></div>
+					<div style="width: 100%; height: 100%; margin-bottom: -34px; border-radius: 25px; transform: translate(3.5px, 4px);" id="bar_inner"></div>
+					<div style="width: 99.9%; height: 100%; border: 4px solid black; border-radius: 25px; transform: translateY(4px)" id="bar_outside"></div>
+				</div>
+			</div>
+		
+		</main>
+		
+	</body>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script src="updateProgressBar.js"></script>
+
+	<script type="text/javascript">
+	
+		update_progress_bar();
+
+		const games_logo_list = [
+			document.getElementById("super_platform_original"),
+			document.getElementById("super_platform_demo"),
+			document.getElementById("lights_out"),
+			document.getElementById("power_outage_olddemo"),
+			document.getElementById("friendship_test"),
+			document.getElementById("cross_worlds_party"),
+			document.getElementById("icecream_catch"),
+			document.getElementById("super_platform_r"),
+		]
+
+		const IMG = document.getElementById("SEL_IMAGE");
+		
+		$(document).ready(function() {
+				$(IMG).css("visibility", "initial");
+				
+				if (!($(games_logo_list[0]).hover()) && !($(games_logo_list[1]).hover()) && !($(games_logo_list[2]).hover())) {
+					$(IMG).attr("src", "resources/checkboard.png");
+				}
+				
+				$(".games_group").hover(function() {
+					// Super Platform: Original
+					$(games_logo_list[0]).hover(function() {
+						$(IMG).attr("src", "resources/super_platform_org.png");
+					})
+					
+					// Super Platform: Demo
+					$(games_logo_list[1]).hover(function() {
+						$(IMG).attr("src", "resources/super_platform_demo.png");
+					})
+					
+					// Lights Out
+					$(games_logo_list[2]).hover(function() {
+						$(IMG).attr("src", "resources/lights_out.png");
+					})
+					
+					// Power Outage: Old Demo
+					$(games_logo_list[3]).hover(function() {
+						$(IMG).attr("src", "resources/power_outage_old_demo.png");
+					})
+					
+					// Friendship Test
+					$(games_logo_list[4]).hover(function() {
+						$(IMG).attr("src", "resources/friendship_test.png");
+					})
+					
+					// Cross-Worlds Party
+					$(games_logo_list[5]).hover(function() {
+						$(IMG).attr("src", "resources/cross_worlds.png");
+					})
+					
+					// IceCream CATCH!
+					$(games_logo_list[6]).hover(function() {
+						$(IMG).attr("src", "resources/icecream_catch.png");
+					})
+					
+					// Super Platform: Reoriginal
+					$(games_logo_list[7]).hover(function() {
+						$(IMG).attr("src", "resources/super_platform_r.png");
+					})
+					
+				}, function(){
+					$(IMG).attr("src", "");
+				})
+			}
+		)
+		
+	</script>
+
+</html>
