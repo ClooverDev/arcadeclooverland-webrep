@@ -2,7 +2,7 @@ function update_progress_bar() {
 	const inner_bar = "#bar_inner";
 	const bar_title = document.getElementById("bar_title");
 	
-	const CURRENT_PROGRESS_INT = 15;
+	const CURRENT_PROGRESS_INT = 19;
 	const CURRENT_PROGRESS_TITLE = "SUPER PLATFORM: R | HUNT OR HUNTED UPDATE";
 	
 	$(inner_bar).width(CURRENT_PROGRESS_INT+"%");
